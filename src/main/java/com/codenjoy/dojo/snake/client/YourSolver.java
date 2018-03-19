@@ -5,13 +5,10 @@ import com.codenjoy.dojo.client.Direction;
 import com.codenjoy.dojo.client.Solver;
 import com.codenjoy.dojo.client.WebSocketRunner;
 import com.codenjoy.dojo.services.Dice;
-import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
 import com.codenjoy.dojo.snake.model.Elements;
 
-/**
- * User: your name
- */
+
 public class YourSolver implements Solver<Board> {
 
     private static final String USER_NAME = "qwerty.snb@gmail.com";
@@ -27,9 +24,7 @@ public class YourSolver implements Solver<Board> {
     public String get(Board board) {
         this.board = board;
 
-//        Point point = board.getApples().get(0);
-//        point.getX()
-//        point.getY()
+
 
         char[][] field = board.getField();
 
@@ -55,7 +50,7 @@ public class YourSolver implements Solver<Board> {
             }
         }
 
-        // нашли змейку
+        // found apple
         int appleX = -1;
         int appleY = -1;
         for (int x = 0; x < field.length; x++) {
