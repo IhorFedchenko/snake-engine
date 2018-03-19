@@ -67,14 +67,41 @@ public class Board extends AbstractBoard<Elements> {
         return result;
     }
 
+    public int getSnakeSize() {
+        int result = 0;
+        char[][] field = getField();
+        for (int x = 0; x < field.length; x++) {
+            for (int y = 0; y < field.length; y++) {
+               char ch = field[x][y];
+               if (ch == Elements.HEAD_UP.ch()||
+                ch == Elements.HEAD_LEFT.ch()||
+                ch == Elements.HEAD_RIGHT.ch()||
+                ch == Elements.HEAD_DOWN.ch()||
+                ch == Elements.TAIL_END_DOWN.ch()||
+                ch == Elements.TAIL_END_LEFT.ch()||
+                ch == Elements.TAIL_END_RIGHT.ch()||
+                ch == Elements.TAIL_END_UP.ch()||
+                ch == Elements.TAIL_HORIZONTAL.ch()||
+                ch == Elements.TAIL_LEFT_DOWN.ch()||
+                ch == Elements.TAIL_LEFT_UP.ch()||
+                ch == Elements.TAIL_RIGHT_DOWN.ch()||
+                ch == Elements.TAIL_RIGHT_UP.ch()||
+                ch == Elements.TAIL_VERTICAL.ch()){
+                    result++;
+               }
+            }
+        }
+        return result;
+    }
+
     @Override
     public String toString() {
         return String.format("Board:\n%s\n" +
-            "Apple at: %s\n" +
-            "Stones at: %s\n" +
-            "Head at: %s\n" +
-            "Snake at: %s\n" +
-            "Current direction: %s",
+                        "Apple at: %s\n" +
+                        "Stones at: %s\n" +
+                        "Head at: %s\n" +
+                        "Snake at: %s\n" +
+                        "Current direction: %s",
                 boardAsString(),
                 getApples(),
                 getStones(),
