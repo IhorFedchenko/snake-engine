@@ -71,6 +71,8 @@ public class YourSolver implements Solver<Board> {
         int dx = snakeHeadX - appleX;
         int dy = snakeHeadY - appleY;
 
+        //decision point
+
         if (dx < 0) {
             return Direction.RIGHT.toString();
         }
