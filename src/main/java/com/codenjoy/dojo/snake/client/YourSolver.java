@@ -49,7 +49,7 @@ public class YourSolver implements Solver<Board> {
                 break;
             }
         }
-
+// add test comment
         // found apple
         int appleX = -1;
         int appleY = -1;
