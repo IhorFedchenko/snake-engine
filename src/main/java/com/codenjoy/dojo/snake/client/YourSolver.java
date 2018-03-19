@@ -14,7 +14,7 @@ import com.codenjoy.dojo.snake.model.Elements;
  */
 public class YourSolver implements Solver<Board> {
 
-    private static final String USER_NAME = "apofig@gmail.com";
+    private static final String USER_NAME = "qwerty.snb@gmail.com";
 
     private Dice dice;
     private Board board;
