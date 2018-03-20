@@ -9,6 +9,8 @@ import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
 import com.codenjoy.dojo.snake.model.Elements;
 
+import java.util.List;
+
 
 public class YourSolver implements Solver<Board> {
 
@@ -28,6 +30,10 @@ public class YourSolver implements Solver<Board> {
         Point head = board.getHead();
         Point apple = board.getApples().get(0);
         Point stone = board.getStones().get(0);
+        List<Point> snake = board.getSnake();
+        List<Point> wall = board.getWalls();
+
+
 
 
 
