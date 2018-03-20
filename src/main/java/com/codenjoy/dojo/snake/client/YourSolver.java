@@ -5,6 +5,7 @@ import com.codenjoy.dojo.client.Direction;
 import com.codenjoy.dojo.client.Solver;
 import com.codenjoy.dojo.client.WebSocketRunner;
 import com.codenjoy.dojo.services.Dice;
+import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
 import com.codenjoy.dojo.snake.model.Elements;
 
@@ -24,49 +25,21 @@ public class YourSolver implements Solver<Board> {
     public String get(Board board) {
         this.board = board;
 
+        Point head = board.getHead();
+        Point apple = board.getApples().get(0);
+        Point stone = board.getStones().get(0);
 
 
-        char[][] field = board.getField();
 
-        // found snake
-        int snakeHeadX = -1;
-        int snakeHeadY = -1;
-        for (int x = 0; x < field.length; x++) {
-            for (int y = 0; y < field.length; y++) {
-                char ch = field[x][y];
-                if (ch == Elements.HEAD_DOWN.ch() ||
-                    ch == Elements.HEAD_UP.ch() ||
-                    ch == Elements.HEAD_LEFT.ch() ||
-                    ch == Elements.HEAD_RIGHT.ch())
-                {
-                    snakeHeadX = x;
-                    snakeHeadY = y;
-                    break;
+        // found snakeHead
+        int snakeHeadX = head.getX();
+        int snakeHeadY = head.getY();
 
-                }
-            }
-            if (snakeHeadX != -1) {
-                break;
-            }
-        }
 
         // found apple
-        int appleX = -1;
-        int appleY = -1;
-        for (int x = 0; x < field.length; x++) {
-            for (int y = 0; y < field.length; y++) {
-                char ch = field[x][y];
-                if (ch == Elements.GOOD_APPLE.ch()) {
-                    appleX = x;
-                    appleY = y;
-                    break;
+        int appleX = apple.getX();
+        int appleY = apple.getY();
 
-                }
-            }
-            if (appleX != -1) {
-                break;
-            }
-        }
 
         int dx = snakeHeadX - appleX;
         int dy = snakeHeadY - appleY;
