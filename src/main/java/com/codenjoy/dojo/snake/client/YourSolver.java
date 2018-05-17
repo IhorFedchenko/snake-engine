@@ -32,7 +32,12 @@ public class YourSolver implements Solver<Board> {
         Point stone = board.getStones().get(0);
         List<Point> snake = board.getSnake();
         List<Point> wall = board.getWalls();
+        
 
+        for(Point body : snake){
+            System.out.println("BodyX: "+body.getX());
+            System.out.println("BodyY: "+body.getY());
+        }
 
 
 
