@@ -30,48 +30,26 @@ public class YourSolver implements Solver<Board> {
         Point head = board.getHead();
         Point apple = board.getApples().get(0);
         Point stone = board.getStones().get(0);
-        List<Point> snake = board.getSnake();
-        List<Point> wall = board.getWalls();
-        
-
-        for(Point body : snake){
-            System.out.println("BodyX: "+body.getX());
-            System.out.println("BodyY: "+body.getY());
-        }
-
-
-
-
-        // found snakeHead
-        int snakeHeadX = head.getX();
-        int snakeHeadY = head.getY();
-
-
-        // found apple
-        int appleX = apple.getX();
-        int appleY = apple.getY();
-
-
-        int dx = snakeHeadX - appleX;
-        int dy = snakeHeadY - appleY;
-
-        //decision point
-
-        if (dx < 0) {
-            return Direction.RIGHT.toString();
-        }
-        if (dx > 0) {
-            return Direction.LEFT.toString();
-        }
-        if (dy < 0) {
-            return Direction.DOWN.toString();
-        }
-        if (dy > 0) {
-            return Direction.UP.toString();
-        }
-
-        return Direction.UP.toString();
+            return getDirection(head, apple).toString();
     }
+
+        private Direction getDirection(Point head, Point apple){
+        int dx = head.getX() - apple.getX();
+        int dy = head.getY() - apple.getY();
+            if (dx < 0) {
+                return Direction.RIGHT;
+            }
+            if (dx > 0) {
+                return Direction.LEFT;
+            }
+            if (dy < 0) {
+                return Direction.DOWN;
+            }
+            if (dy > 0) {
+                return Direction.UP;
+            }
+            return Direction.UP;
+        }
 
     public static void main(String[] args) {
         start(USER_NAME, WebSocketRunner.Host.REMOTE);

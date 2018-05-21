@@ -21,7 +21,7 @@ public class Board extends AbstractBoard<Elements> {
     public List<Point> getApples() {
         return get(Elements.GOOD_APPLE);
     }
-
+//Направление движения змейки
     public Direction getSnakeDirection() {
         Point head = getHead();
         if (isAt(head.getX(), head.getY(), Elements.HEAD_LEFT)) {
@@ -34,7 +34,7 @@ public class Board extends AbstractBoard<Elements> {
             return Direction.DOWN;
         }
     }
-
+//Координаты головы змейки
     public Point getHead() {
         List<Point> result = get(
                 Elements.HEAD_UP,
@@ -43,14 +43,14 @@ public class Board extends AbstractBoard<Elements> {
                 Elements.HEAD_RIGHT);
         return result.get(0);
     }
-
+//Список всех припятствий которые могут быть
     public List<Point> getBarriers() {
         List<Point> result = getSnake();
         result.addAll(getStones());
         result.addAll(getWalls());
         return result;
     }
-
+//Все координаты змейки
     public List<Point> getSnake() {
         List<Point> result = get(
                 Elements.TAIL_END_DOWN,
