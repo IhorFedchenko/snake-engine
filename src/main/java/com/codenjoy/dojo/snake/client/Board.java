@@ -117,4 +117,15 @@ public class Board extends AbstractBoard<Elements> {
     public List<Point> getWalls() {
         return get(Elements.BREAK);
     }
+    public boolean isTailOn(Point from, Direction direction){
+        List<Point> snake = getSnake();
+        Point point = direction.change(from);
+        return  snake.contains(point);
+    }
+
+    public boolean isStoneOn(Point from, Direction direction){
+        List<Point> snake = getStones();
+        Point point = direction.change(from);
+        return  snake.contains(point);
+    }
 }

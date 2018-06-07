@@ -94,7 +94,7 @@ public class YourSolverTest {
 
     private void assertB(String boardString, String expected) {
         // given
-        YourSolver solver = new YourSolver(new RandomDice());
+        YourSolver solver = new YourSolver();
 
         // when
         String direction = solver.get((Board)new Board().forString(
